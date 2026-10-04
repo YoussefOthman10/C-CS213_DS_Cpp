@@ -65,10 +65,10 @@ void ArrayList<T>::push(T item)
 template <class T>
 void ArrayList<T>::remove(int index)
 {
-    if(index > ctr)
+    if(index >= ctr)
         return;
-    for(int i = ctr-1; i > index; i--)
-        A[i-1] = A[i];
+    for(int i = index; i < ctr-1; i++)
+        A[i] = A[i+1];
     ctr--;
 }
 
@@ -91,7 +91,8 @@ template <class T>
 void ArrayList<T>::display()
 {
     for(int i=0; i<ctr; i++)
-        cout<<A[i]<<" "<<endl;
+        cout<<A[i]<<"\t";
+    cout<<endl;
 }
 
 
@@ -102,17 +103,18 @@ ArrayList<T>::~ArrayList()
 }
 
 int main(){
-    ArrayList<int> A1(50);
-    for(int i=0; i<=100; i++)
+    ArrayList<int> A1(6);
+    for(int i=0; i<10; i++)
     {
         A1.push(i);
     }
     A1.display();
-    cout<<A1.getSize()<<endl;
-    A1.insertAt(666,1);
+    cout<<"Current Size of ArrayList is: "<<A1.getSize()<<endl;
+    A1.insertAt(999,4);
     A1.display();
-    cout<<A1.getElem(1)<<endl;
-    A1.remove(1);
+    cout<<"Current Size of ArrayList is: "<<A1.getSize()<<endl;
+    cout<<"Current Element at fourth index is: "<<A1.getElem(4)<<endl;
+    A1.remove(4);
     A1.display();
-    cout<<A1.getSize()<<endl;
+    cout<<"Current Size of ArrayList is: "<<A1.getSize()<<endl;
 }

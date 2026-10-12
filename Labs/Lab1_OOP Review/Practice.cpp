@@ -30,6 +30,7 @@ public:
             Arr[i] = obj.Arr[i];
     }
 
+    // copy assignment operator overloading
     DynamicArray& operator =(const DynamicArray &obj) {
         
         // check for self-assignment
@@ -86,20 +87,30 @@ public:
         return elem;
     }
 
-
-
-
-
-
-
-
-
-
     // destructor
     ~DynamicArray() {
         delete[] Arr;
     }
 };
+
+// a template function that gets the larger of the two passed values
+template<class T>
+T getMax(T a, T b) {
+    if(a > b)
+        return a;
+    else
+        return b;
+}
+
+// a template function that takes two values of the same type and swaps them
+template<class T>
+void swapValues(T a, T b) {
+    T temp;
+    temp = a;
+    a = b;
+    b = temp;
+}
+
 
 
 
@@ -118,5 +129,4 @@ int main() {
     d2.addAtEnd(99);
     d2.display();
     d1.display();  // to prove they're independent (deep copy working correctly)
-
 }

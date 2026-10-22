@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 using namespace std;
 
 
@@ -22,4 +23,7 @@ public:
     LinkedList();
     void addToHead(int elem);
     void addToTail(int elem);
+    void print();
+    int size();
+    void insertAt(int elem, int index);
 };
